@@ -1,0 +1,39 @@
+@startuml
+class Hospital {
+    - nombre: String
+    - telefono: int
+    - idHospital: int
+    - departamentos: List<Departamento>
+}
+
+class Departamento {
+    - nombre: String
+    - cantidadMedicos: int
+    - cantidadPacientes: int
+    + mostrarCantidadMedicos(): void
+    + mostrarCantidadPacientes(): void
+}
+
+class Paciente {
+    - nombre: String
+    - idPaciente: int
+    - estado: String
+    + necesitaAyuda(): void
+}
+
+class Medico {
+    - nombre: String
+    - idFuncionario: int
+    - disponible: boolean
+    + atenderPaciente(): void
+}
+
+class Especialidad {
+    - nombreEspecialidad: String
+}
+
+Hospital *-- Departamento
+Departamento *-- Medico
+Departamento *-- Paciente
+Medico <|-- Especialidad
+@enduml
